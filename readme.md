@@ -1,7 +1,7 @@
 # vue-headful
 
 vue-headful allows to set the title and several meta tags of your document from any Vue.js view.
-vue-headful is a tiny wrapper around [Headful](https://github.com/troxler/headful), a generic library to set meta tags with JavaScript. 
+vue-headful is a tiny wrapper around [Headful](https://github.com/troxler/headful), a generic library to set meta tags with JavaScript.
 
 ## Install
 
@@ -41,7 +41,7 @@ And then use the `vue-headful` component in every of your views:
 
 vue-headful is only a wrapper around [Headful](https://github.com/troxler/headful) and by itself does not do that much.
 vue-headful supports all the [head properties that are supported by Headful](https://github.com/troxler/headful#documentation).
-You can find a non-complete list of head properties in the following example: 
+You can find a non-complete list of head properties in the following example:
 
 ```html
 <vue-headful
@@ -51,12 +51,48 @@ You can find a non-complete list of head properties in the following example:
     image=""
     lang=""
     ogLocale=""
+    url=""
 />
+```
+
+If there are any other head properties or attributes you want to set, you can use `html` (for arbitrary elements in the whole document) or `head` (for elements within `<head>`) as follows.
+The selectors can be any valid CSS selector.
+
+```html
+<vue-headful
+    :html="{
+        body: {id: 'aPageId'},
+        h1: {'data-foo': 'bar'},
+    }"
+    :head="{
+        'meta[charset]': {charset: 'utf-8'},
+    }"
+/>
+
+<!-- Results in:
+<head>
+    <meta charset="utf-8">
+</head>
+<body id="aPageId">
+<h1 data-foo="bar"></h1>
+-->
+```
+
+If you want to **remove a previously defined attribute from an element**, you can set it to `undefined` as in the example below:
+
+```html
+<vue-headful :title="undefined"/>
+<!-- Results in:
+<title></title>
+<meta itemprop="name">
+<meta property="og:title">
+<meta name="twitter:title">
+-->
 ```
 
 Note that neither Headful nor vue-headful add missing HTML elements, they only add attribute values.
 So it is important that you add everything that you want to have populated in your HTML first.
-For example, to specify the title and description you have to prepare the HTML as follows. 
+For example, to specify the title and description you have to prepare the HTML as follows.
 
 ```html
 <!DOCTYPE html>
@@ -118,5 +154,8 @@ Also see the non-complete list of meta tags and other head properties you can de
 * `<meta property="og:image">`
 * `<meta name="twitter:image">`
 * `<meta property="og:locale">`
+* `<link rel="canonical">`
+* `<meta property="og:url">`
+* `<meta name="twitter:url">`
 
 For more information on everything you can put into `<head>`, have a look at <https://gethead.info/>.

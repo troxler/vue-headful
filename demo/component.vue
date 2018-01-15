@@ -7,6 +7,14 @@
             image="http://example.com/preview.png"
             :lang="lang"
             ogLocale="en-GB"
+            url="http://localhost:4000/"
+            :html="{
+                body: {id: 'aPageId', 'data-remove-me': undefined},
+                h1: {'data-foo': 'bar'},
+            }"
+            :head="{
+                'meta[charset]': {charset: 'utf-8'},
+            }"
     />
 </div>
 </template>
