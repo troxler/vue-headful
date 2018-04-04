@@ -1,3 +1,5 @@
+# TODO Update package.json Headful: 1.0.3+
+
 # vue-headful
 
 vue-headful allows to set the title and several meta tags of your document from any Vue.js view.
@@ -78,10 +80,10 @@ The selectors can be any valid CSS selector.
 -->
 ```
 
-If you want to **remove a previously defined attribute from an element**, you can set it to `undefined` as in the example below:
+If you want to **remove a previously defined attribute from an element**, you can set it to `null` as in the example below:
 
 ```html
-<vue-headful :title="undefined"/>
+<vue-headful :title="null"/>
 <!-- Results in:
 <title></title>
 <meta itemprop="name">

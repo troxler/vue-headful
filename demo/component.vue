@@ -9,7 +9,7 @@
             ogLocale="en-GB"
             url="http://localhost:4000/"
             :html="{
-                body: {id: 'aPageId', 'data-remove-me': undefined},
+                body: {id: 'aPageId', 'data-remove-me': null},
                 h1: {'data-foo': 'bar'},
             }"
             :head="{

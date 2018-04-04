@@ -5,7 +5,7 @@ export default {
     props: Object.keys(headful.props),
     watch: {
         '$props': {
-            handler: (props) => headful(props),
+            handler: (props) => headful(getPassedProps(props)),
             deep: true,
             immediate: true,
         },
@@ -13,3 +13,12 @@ export default {
     render() {
     },
 };
+
+function getPassedProps(props) {
+    return Object.keys(props).reduce((passedProps, propKey) => {
+        if (props[propKey] !== undefined) {
+            passedProps[propKey] = props[propKey];
+        }
+        return passedProps;
+    }, {});
+}
