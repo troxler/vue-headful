@@ -29,7 +29,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "headful": "1.x"
+    "headful": "^1.0.3"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",
