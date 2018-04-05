@@ -1,6 +1,6 @@
 {
   "name": "vue-headful",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Set <head> properties (e.g. title and meta tags) in Vue.js apps.",
   "keywords": [
     "Vue.js",
