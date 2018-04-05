@@ -1,5 +1,3 @@
-# TODO Update package.json Headful: 1.0.3+
-
 # vue-headful
 
 vue-headful allows to set the title and several meta tags of your document from any Vue.js view.
